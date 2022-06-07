@@ -1,0 +1,14 @@
+//
+// Created by loona on 06/06/22.
+//
+
+#ifndef REVAMPED_MINECRAFT_GENERATION_GRID_H
+#define REVAMPED_MINECRAFT_GENERATION_GRID_H
+
+
+class grid {
+
+};
+
+
+#endif //REVAMPED_MINECRAFT_GENERATION_GRID_H
