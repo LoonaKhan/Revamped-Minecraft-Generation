@@ -8,5 +8,9 @@
 // set as extern if they are not initialized
 extern const int screenRes[];
 extern const int midPoint[];
+extern float zoomFactor;
+extern const int blockSize;
+extern const int chunkSize;
+extern const char appName[];
 
 #endif //REVAMPED_MINECRAFT_GENERATION_GLOBVARS_H

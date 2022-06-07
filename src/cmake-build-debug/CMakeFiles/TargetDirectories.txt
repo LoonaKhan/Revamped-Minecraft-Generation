@@ -1,3 +1,5 @@
 /home/loona/programming/Revamped-Minecraft-Generation/src/cmake-build-debug/CMakeFiles/Revamped_Minecraft_Generation.dir
+/home/loona/programming/Revamped-Minecraft-Generation/src/cmake-build-debug/CMakeFiles/Grid_System.dir
+/home/loona/programming/Revamped-Minecraft-Generation/src/cmake-build-debug/CMakeFiles/Convert_Coords_test.dir
 /home/loona/programming/Revamped-Minecraft-Generation/src/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/loona/programming/Revamped-Minecraft-Generation/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
