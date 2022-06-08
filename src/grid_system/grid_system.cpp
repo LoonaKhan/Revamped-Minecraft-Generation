@@ -43,7 +43,7 @@ int main(){
 
                 // sets all the properties of the block
                 sf::Texture texture; // initializes the texture
-                texture.loadFromFile("../../assets/blocks/water/water2.png"); // loads the texture
+                texture.loadFromFile("../../assets/blocks/sand/sand.png"); // loads the texture
                 texture.setSmooth(false); // makes it look more pixelly
 
                 block.setTexture(texture);
