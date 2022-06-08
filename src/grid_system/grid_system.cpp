@@ -37,17 +37,20 @@ int main(){
         for (int x=-gridDims[0]; x<=gridDims[0]; x++) // draws all points.
             for (int y=-gridDims[1]; y<=gridDims[1]; y++){
 
-                vector<int> drawCoords = convertCoords({x,y}); // drawCoords. where the point will be drawn
-                //cout << "["<< drawCoords[0] << ", "<< drawCoords[1] << "]" << endl;
+                vector<int> drawCoords = convertCoords({x,y}); // drawCoords. where the block will be drawn
 
-                sf::CircleShape point; // creates the point
+                sf::Sprite block; // creates the block
 
-                // sets all the properties of the point
-                point.setFillColor(sf::Color(255,255,255)); // sets colour
-                point.setRadius(1); // has a radius of size 1
-                point.setPosition(drawCoords[0], drawCoords[1]); // sets the position at the drawCoords
+                // sets all the properties of the block
+                sf::Texture texture; // initializes the texture
+                texture.loadFromFile("../../assets/blocks/water/water2.png"); // loads the texture
+                texture.setSmooth(false); // makes it look more pixelly
 
-                window.draw(point); // draws the point
+                block.setTexture(texture);
+                //block.setSize({blockSize * zoomFactor, blockSize * zoomFactor}); // sets size
+                block.setPosition(drawCoords[0], drawCoords[1]); // sets the position at the drawCoords
+
+                window.draw(block); // draws the block
             }
 
 
