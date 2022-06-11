@@ -1,6 +1,7 @@
+// Contains methods and functionality for the grid system
 //
 // Created by loona on 06/06/22.
-//
+
 #include <vector>
 #include <cmath>
 #include "../globvars.h"
