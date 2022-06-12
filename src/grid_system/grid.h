@@ -9,10 +9,13 @@
 #ifndef REVAMPED_MINECRAFT_GENERATION_GRID_H
 #define REVAMPED_MINECRAFT_GENERATION_GRID_H
 
+namespace grid {
+    std::vector<int> convertCoords(std::vector<int> gridCoords);
 
-std::vector<int> convertCoords(std::vector<int> gridCoords);
+    std::vector<int> getGridDimensions();
 
-std::vector<int> getGridDimensions();
+    void setZoom(float delta);
+}
 
 
 

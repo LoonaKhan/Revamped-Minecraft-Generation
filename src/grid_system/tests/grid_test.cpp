@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-int main(){
+int main(){ // tests the grid methods
 
     std::vector<int> gridCoords = {0,1}; // gives a
     std::cout << convertCoords(gridCoords)[0]<< ", " << convertCoords(gridCoords)[1] << std::endl;

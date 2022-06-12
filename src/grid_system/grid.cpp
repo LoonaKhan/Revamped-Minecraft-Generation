@@ -1,12 +1,12 @@
+// Handles all grid functionality.
 //
 // Created by loona on 06/06/22.
 //
 
 #include "grid.h"
-
 #include <cmath>
 
-std::vector<int> convertCoords(std::vector<int> gridCoords) {
+std::vector<int> grid::convertCoords(std::vector<int> gridCoords) {
     /*
      * Converts a pair of coordinates.
      *
@@ -24,7 +24,7 @@ std::vector<int> convertCoords(std::vector<int> gridCoords) {
     };
 }
 
-std::vector<int> getGridDimensions(){
+std::vector<int> grid::getGridDimensions(){
     /*
      * Determines the size of the grid given the zoom factor and block size.
      *
@@ -47,4 +47,35 @@ std::vector<int> getGridDimensions(){
         midPoint[0] / (int)(blockSize * zoomFactor),
         midPoint[1] / (int)(blockSize * zoomFactor)
     };
+}
+
+void grid::setZoom(float delta) {
+    /*
+     * Adjusts the zoomFactor global constant.
+     *
+     * We use this when we zoom in and out during the game.
+     * Is triggered when we scroll the vertical mouse wheel.
+     *
+     * the delta is a float. either -0.25 or +0.25 .
+     *
+     * To prevent the zoom factor from reaching or falling below 0, we set a limit.
+     * If the zoom factor is 0.25 and the delta is negative, do not scroll out further.
+     *
+     * Additionally, there is a limit on zooming in.
+     * The zoom factor cannot exceed 4.0.
+     * if it reaches 4.0 and delta >0, do not scroll in further
+     *
+     * Otherwise, the scroll wheel will simply add the delta to the zoomFactor.
+     *
+     * TODO:
+     *  zooming is kinda slow. maybe check fps?
+     * */
+
+    // does nothing if we try to zoom in/out beyond the limits
+    if (delta < 0 and zoomFactor ==0.25f);
+    else if (delta > 0 and zoomFactor == 4.0f);
+
+    else zoomFactor += delta; // otherwise, just zoom freely
+
+    // std::cout << zoomFactor << std::endl;
 }
