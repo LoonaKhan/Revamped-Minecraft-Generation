@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <cmath>
+#include <SFML/Graphics.hpp>
 #include "../globvars.h"
 
 #ifndef REVAMPED_MINECRAFT_GENERATION_GRID_H
@@ -15,6 +16,8 @@ namespace grid {
     std::vector<int> getGridDimensions();
 
     void setZoom(float delta);
+
+    void drawMidpoint(sf::RenderWindow* window);
 }
 
 

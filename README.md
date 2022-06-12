@@ -7,3 +7,15 @@ Worlds can consist of different biomes such as deserts, forests and plains etc.
 ### Dependancies: 
 - [SFML](https://www.sfml-dev.org/download/sfml/2.5.1/)
 - C++14 
+
+### todo:
+- movement
+- zooming limits
+- block/chunk objects
+- animation
+- use the camera instead of zooming?
+- perlin noise generation (need a noise library)
+- multithread the rendering
+- make sure terrain is infinite
+- entity/player objects
+- then we can make a fullon game

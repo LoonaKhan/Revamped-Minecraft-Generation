@@ -9,3 +9,7 @@ entity // entities that are basically sprites
     entity // base entity. inherits from sprite
     player // inherits from entity
     other // inherits from entity
+
+utils
+    SFML
+        draw midpoint

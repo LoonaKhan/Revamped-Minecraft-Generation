@@ -77,7 +77,7 @@ void setZoomTest(){
 }
 
 int main(){ // tests the grid methods
-    convertCoordsTest();
+    //convertCoordsTest();
     //getGridDimensionsTest();
     //setZoomTest();
 }

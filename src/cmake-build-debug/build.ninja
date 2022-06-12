@@ -61,6 +61,12 @@ build CMakeFiles/Revamped_Minecraft_Generation.dir/globvars.cpp.o: CXX_COMPILER_
   OBJECT_DIR = CMakeFiles/Revamped_Minecraft_Generation.dir
   OBJECT_FILE_DIR = CMakeFiles/Revamped_Minecraft_Generation.dir
 
+build CMakeFiles/Revamped_Minecraft_Generation.dir/grid_system/Block.cpp.o: CXX_COMPILER__Revamped_Minecraft_Generation_Debug /home/loona/programming/Revamped-Minecraft-Generation/src/grid_system/Block.cpp || cmake_object_order_depends_target_Revamped_Minecraft_Generation
+  DEP_FILE = CMakeFiles/Revamped_Minecraft_Generation.dir/grid_system/Block.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/Revamped_Minecraft_Generation.dir
+  OBJECT_FILE_DIR = CMakeFiles/Revamped_Minecraft_Generation.dir/grid_system
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Revamped_Minecraft_Generation
@@ -69,7 +75,7 @@ build CMakeFiles/Revamped_Minecraft_Generation.dir/globvars.cpp.o: CXX_COMPILER_
 #############################################
 # Link the executable Revamped_Minecraft_Generation
 
-build Revamped_Minecraft_Generation: CXX_EXECUTABLE_LINKER__Revamped_Minecraft_Generation_Debug CMakeFiles/Revamped_Minecraft_Generation.dir/main.cpp.o CMakeFiles/Revamped_Minecraft_Generation.dir/globvars.cpp.o
+build Revamped_Minecraft_Generation: CXX_EXECUTABLE_LINKER__Revamped_Minecraft_Generation_Debug CMakeFiles/Revamped_Minecraft_Generation.dir/main.cpp.o CMakeFiles/Revamped_Minecraft_Generation.dir/globvars.cpp.o CMakeFiles/Revamped_Minecraft_Generation.dir/grid_system/Block.cpp.o
   FLAGS = -g
   LINK_LIBRARIES = -lsfml-graphics  -lsfml-window  -lsfml-system
   OBJECT_DIR = CMakeFiles/Revamped_Minecraft_Generation.dir
@@ -105,6 +111,12 @@ build CMakeFiles/Grid_System.dir/grid_system/grid.cpp.o: CXX_COMPILER__Grid_Syst
   OBJECT_DIR = CMakeFiles/Grid_System.dir
   OBJECT_FILE_DIR = CMakeFiles/Grid_System.dir/grid_system
 
+build CMakeFiles/Grid_System.dir/grid_system/Block.cpp.o: CXX_COMPILER__Grid_System_Debug /home/loona/programming/Revamped-Minecraft-Generation/src/grid_system/Block.cpp || cmake_object_order_depends_target_Grid_System
+  DEP_FILE = CMakeFiles/Grid_System.dir/grid_system/Block.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/Grid_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/Grid_System.dir/grid_system
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Grid_System
@@ -113,7 +125,7 @@ build CMakeFiles/Grid_System.dir/grid_system/grid.cpp.o: CXX_COMPILER__Grid_Syst
 #############################################
 # Link the executable Grid_System
 
-build Grid_System: CXX_EXECUTABLE_LINKER__Grid_System_Debug CMakeFiles/Grid_System.dir/grid_system/grid_system.cpp.o CMakeFiles/Grid_System.dir/globvars.cpp.o CMakeFiles/Grid_System.dir/grid_system/grid.cpp.o
+build Grid_System: CXX_EXECUTABLE_LINKER__Grid_System_Debug CMakeFiles/Grid_System.dir/grid_system/grid_system.cpp.o CMakeFiles/Grid_System.dir/globvars.cpp.o CMakeFiles/Grid_System.dir/grid_system/grid.cpp.o CMakeFiles/Grid_System.dir/grid_system/Block.cpp.o
   FLAGS = -g
   LINK_LIBRARIES = -lsfml-graphics  -lsfml-window  -lsfml-system
   OBJECT_DIR = CMakeFiles/Grid_System.dir

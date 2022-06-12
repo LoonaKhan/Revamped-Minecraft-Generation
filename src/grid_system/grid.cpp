@@ -79,3 +79,24 @@ void grid::setZoom(float delta) {
 
     // std::cout << zoomFactor << std::endl;
 }
+
+void grid::drawMidpoint(sf::RenderWindow *window) { // draws the midpoint
+    // makes 2 rects in the centre.
+    // we make 2 for the sake of visibility
+
+    // the first, larger rect
+    sf::RectangleShape mid;
+    mid.setPosition(midPoint[0], midPoint[1]);
+    mid.setOrigin(8,8);
+    mid.setFillColor(sf::Color::Black);
+    mid.setSize(sf::Vector2<float>(16,16));
+    window->draw(mid);
+
+    // the smaller rect
+    sf::RectangleShape mid2;
+    mid2.setPosition(midPoint[0], midPoint[1]);
+    mid2.setOrigin(4,4);
+    mid2.setFillColor(sf::Color::White);
+    mid2.setSize(sf::Vector2<float>(8,8));
+    window->draw(mid2);
+}

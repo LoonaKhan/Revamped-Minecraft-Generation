@@ -59,6 +59,8 @@ int main(){
                 window.draw(block); // draws the block
             }
 
+        grid::drawMidpoint(&window);
+
 
         window.display(); // displays the window
         window.clear(); // clears the screen.
