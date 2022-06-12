@@ -1,0 +1,11 @@
+grid_system
+    blocks // basically sprites
+    grid // makes the grid system
+    chunks // chunks which are made up of blocks. object?
+
+noise // generate noise functions
+
+entity // entities that are basically sprites
+    entity // base entity. inherits from sprite
+    player // inherits from entity
+    other // inherits from entity

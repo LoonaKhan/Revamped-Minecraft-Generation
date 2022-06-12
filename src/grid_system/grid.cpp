@@ -20,7 +20,7 @@ std::vector<int> grid::convertCoords(std::vector<int> gridCoords) {
      * */
     return {
             midPoint[0] + (int)(gridCoords[0] * zoomFactor * blockSize),
-            midPoint[1] + (int)(gridCoords[1] * zoomFactor * blockSize)
+            midPoint[1] - (int)(gridCoords[1] * zoomFactor * blockSize)
     };
 }
 
@@ -37,15 +37,15 @@ std::vector<int> grid::getGridDimensions(){
      * All of these blocks will be visible.
      *
      * Example:
-     *  blockSize = 16, zoomFactor = 1.0, midPoint = [960, 540]
-     *  -> [60, 33]
-     *  // 60 blocks can fit in the -x or +x direction.
-     *  // 33 blocks can fit within the -y or +y direction.
+     *  blockSize = 32, zoomFactor = 1.0, midPoint = [960, 540]
+     *  -> [30, 17]
+     *  // 30 blocks can partially/fully fit in the -x or +x direction.
+     *  // 17 blocks can partially/fully fit within the -y or +y direction.
      *
      * */
     return {
-        midPoint[0] / (int)(blockSize * zoomFactor),
-        midPoint[1] / (int)(blockSize * zoomFactor)
+            static_cast<int>(ceil(midPoint[0] / (blockSize * zoomFactor))),
+            static_cast<int>(ceil(midPoint[1] / (blockSize * zoomFactor)))
     };
 }
 
