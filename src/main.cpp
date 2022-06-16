@@ -6,10 +6,10 @@
  * Developer: lvlonEmperor
  * Date: 2022-06-06
  */
-// note: gridCoords, drawCoords and position/blockCoords are all different
+// note: gridCoords, drawCoords and playerCoords are all different
 // drawCoords: the actual coordinate location on the screen. relative to the monitor's top-left corner
 // gridCoords: the coordinate location of blocks relative to the midpoint.
-// blockCoords/position: the current block the player is located on.
+// playerCoords: the current block the player is located on.
 #include <iostream>
 
 int main() {

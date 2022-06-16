@@ -100,3 +100,35 @@ void grid::drawMidpoint(sf::RenderWindow *window) { // draws the midpoint
     mid2.setSize(sf::Vector2<float>(8,8));
     window->draw(mid2);
 }
+
+void grid::calcFrameData(sf::Clock *clock) {
+    /*
+     * Calculates all the frame data.
+     *
+     * This includes frametimes and FPS
+     * */
+
+    frameTime = clock->restart().asSeconds(); // frametime is the time from 1 frame to the next. in seconds
+    FPS = 1/frameTime; // FPS is 1/frametime
+}
+
+void grid::drawFPS(sf::RenderWindow *window) {
+    /*
+     * Draws the FPS to the screen.
+     *
+     * Starts by loading the font file.
+     *
+     * Then sets the text and draws it
+     * */
+
+    sf::Font font;
+    font.loadFromFile("../../assets/fonts/blockgame.ttf"); // TODO: error handle this
+
+    sf::Text fpsText;
+    fpsText.setFont(font);
+    fpsText.setString(std::to_string((int)FPS)); // sets the text of the string to the FPS value
+    fpsText.setCharacterSize(24); // size in pixels
+    fpsText.setFillColor(sf::Color::White);
+
+    window->draw(fpsText);
+}

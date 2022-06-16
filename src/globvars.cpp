@@ -10,3 +10,9 @@ float zoomFactor = 1.0f; // min of 0.25, max of 4.0. todo: raise the minimum?
 const int blockSize = 32; // 32 seems like a nice sweet-spot.
 const int chunkSize = 16; // subject to chage.
 const char appName[] = "Revamped Minecraft Generation";
+
+std::unordered_map<std::string , sf::Texture> TEXTURES;
+
+float FPS;
+float frameTime;
+int FPSLimit = 60;

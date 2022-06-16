@@ -5,6 +5,8 @@
 #include <iostream>
 #include "../globvars.h"
 #include "grid.h"
+#include "Block.h"
+#include "../utils/directory.h"
 using namespace std;
 
 const char name[] = "Grid_system";
@@ -17,6 +19,8 @@ int main(){
             sf::Style::Close | sf::Style::Resize
             );
     sf::Clock clock; // the clock. basically what we can use to regulate frame rate
+    //float dt; // the number of seconds since the last frame
+    loadTextures();
 
 
 
@@ -42,25 +46,20 @@ int main(){
         for (int x=-gridDims[0]; x<=gridDims[0]; x++) // draws all points.
             for (int y=-gridDims[1]; y<=gridDims[1]; y++){
 
-                vector<int> drawCoords = grid::convertCoords({x,y}); // determines where to draw the block
 
-                sf::Sprite block; // creates the block
+                Block block = Block({x,y});
 
-                // sets all the properties of the block
-                sf::Texture texture; // initializes the texture
-                texture.loadFromFile("../../assets/blocks/plains/flower1.png"); // loads the texture
-                texture.setSmooth(false); // makes it look more pixelated
-                block.setTexture(texture); // sets the texture
+                //block.render(); // TODO: make all blocks rendered at first, but not afterward
+                Block::draw(&window, block);
 
-                block.setScale(zoomFactor, zoomFactor); // scales the block to the zoom factor
-
-                block.setPosition(drawCoords[0], drawCoords[1]); // sets the position of the block
-
-                window.draw(block); // draws the block
             }
 
         grid::drawMidpoint(&window);
 
+        // calcs, draws and sets fps
+        grid::calcFrameData(&clock);
+        grid::drawFPS(&window);
+        window.setFramerateLimit(FPSLimit); // limits fps
 
         window.display(); // displays the window
         window.clear(); // clears the screen.

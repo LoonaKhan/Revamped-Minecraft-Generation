@@ -18,6 +18,10 @@ namespace grid {
     void setZoom(float delta);
 
     void drawMidpoint(sf::RenderWindow* window);
+
+    void calcFrameData(sf::Clock* clock);
+
+    void drawFPS(sf::RenderWindow* window);
 }
 
 
