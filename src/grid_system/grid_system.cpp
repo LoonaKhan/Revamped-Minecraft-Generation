@@ -49,7 +49,7 @@ int main(){
 
                 Block block = Block({x,y});
 
-                //block.render(); // TODO: make all blocks rendered at first, but not afterward
+                block.render(); // TODO: make all blocks rendered at first, but not afterward
                 Block::draw(&window, block);
 
             }

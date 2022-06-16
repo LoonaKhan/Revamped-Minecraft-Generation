@@ -122,7 +122,7 @@ void grid::drawFPS(sf::RenderWindow *window) {
      * */
 
     sf::Font font;
-    font.loadFromFile("../../assets/fonts/blockgame.ttf"); // TODO: error handle this
+    font.loadFromFile("../assets/fonts/blockgame.ttf"); // TODO: error handle this
 
     sf::Text fpsText;
     fpsText.setFont(font);

@@ -10,3 +10,5 @@ add_executable(Util_directory src/utils/directory.cpp src/utils/directory.h)
 
 target_link_libraries(Revamped_Minecraft_Generation sfml-graphics sfml-window sfml-system)
 target_link_libraries(Grid_System sfml-graphics sfml-window sfml-system)
+target_link_libraries(Convert_Coords_test sfml-graphics sfml-window sfml-system)
+target_link_libraries(Util_directory sfml-graphics sfml-window sfml-system)

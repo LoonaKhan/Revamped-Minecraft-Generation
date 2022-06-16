@@ -12,11 +12,11 @@
 void loadTextures(){
 
     sf::Texture flower1;
-    flower1.loadFromFile("../../assets/blocks/plains/flower2.png");
+    flower1.loadFromFile("../assets/blocks/plains/flower2.png");
     flower1.setSmooth(false);
 
     sf::Texture flower2;
-    flower2.loadFromFile("../../assets/blocks/plains/flower2.png");
+    flower2.loadFromFile("../assets/blocks/plains/flower2.png");
     flower2.setSmooth(false);
 
     TEXTURES["flower1"] = flower1;
