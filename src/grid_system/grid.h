@@ -15,6 +15,8 @@ namespace grid {
 
     std::vector<int> getGridDimensions();
 
+    std::vector<std::vector<int>> getBlocks(std::vector<int> gridDimensions);
+
     void setZoom(float delta);
 
     void drawMidpoint(sf::RenderWindow* window);
@@ -22,6 +24,8 @@ namespace grid {
     void calcFrameData(sf::Clock* clock);
 
     void drawFPS(sf::RenderWindow* window);
+
+    void showCoords(sf::RenderWindow* window);
 }
 
 

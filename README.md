@@ -12,12 +12,11 @@ Worlds can consist of different biomes such as deserts, forests and plains etc.
 
 ### todo:
 - movement
-- zooming limits
-- block/chunk objects
+- optimize the rendering
 - animation
 - use the camera instead of zooming?
 - perlin noise generation (need a noise library)
 - multithread the rendering
 - make sure terrain is infinite
 - entity/player objects
-- then we can make a fullon game
+- then we can make a full-on game

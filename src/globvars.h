@@ -20,10 +20,18 @@ extern const char appName[];
 
 // keeps track of all textures
 extern std::unordered_map<std::string , sf::Texture> TEXTURES;
+void loadTextures();
 
 // FPS data
 extern float frameTime;
 extern float FPS;
 extern int FPSLimit;
+
+// Fonts
+extern std::unordered_map<std::string, sf::Font> FONTS;
+void loadFonts();
+
+// the player
+extern int playerCoords[];
 
 #endif //REVAMPED_MINECRAFT_GENERATION_GLOBVARS_H

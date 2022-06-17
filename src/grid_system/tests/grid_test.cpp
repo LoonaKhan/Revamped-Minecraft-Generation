@@ -76,8 +76,17 @@ void setZoomTest(){
 
 }
 
+void getBlocksTest(){
+   auto blocks = grid::getBlocks(grid::getGridDimensions());
+
+   for (auto block : blocks){
+       std::cout << vectorLog(block)<<std::endl;
+   }
+}
+
 int main(){ // tests the grid methods
     //convertCoordsTest();
     //getGridDimensionsTest();
     //setZoomTest();
+    getBlocksTest();
 }

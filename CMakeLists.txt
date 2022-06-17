@@ -3,8 +3,8 @@ project(Revamped_Minecraft_Generation)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Revamped_Minecraft_Generation src/main.cpp src/globvars.cpp src/globvars.h src/grid_system/Block.cpp src/grid_system/Block.h src/utils/directory.h src/utils/directory.cpp)
-add_executable(Grid_System src/grid_system/grid_system.cpp src/globvars.cpp src/globvars.h src/grid_system/grid.cpp src/grid_system/grid.h src/grid_system/Block.cpp src/grid_system/Block.h src/utils/directory.h src/utils/directory.cpp)
+add_executable(Revamped_Minecraft_Generation src/main.cpp src/globvars.cpp src/globvars.h src/grid_system/Block.cpp src/grid_system/Block.h src/utils/directory.h src/utils/directory.cpp src/keybinds/keybinds.cpp src/keybinds/keybinds.h)
+add_executable(Grid_System src/grid_system/grid_system.cpp src/globvars.cpp src/globvars.h src/grid_system/grid.cpp src/grid_system/grid.h src/grid_system/Block.cpp src/grid_system/Block.h src/utils/directory.h src/utils/directory.cpp src/keybinds/keybinds.cpp src/keybinds/keybinds.h)
 add_executable(Convert_Coords_test src/grid_system/tests/grid_test.cpp src/globvars.h src/globvars.cpp src/grid_system/grid.cpp src/grid_system/grid.h src/utils/directory.h src/utils/directory.cpp)
 add_executable(Util_directory src/utils/directory.cpp src/utils/directory.h)
 

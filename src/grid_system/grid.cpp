@@ -10,17 +10,24 @@ std::vector<int> grid::convertCoords(std::vector<int> gridCoords) {
     /*
      * Converts a pair of coordinates.
      *
-     * The coordinates on the grid represent blocks. each block is blockSize(16px).
+     * The coordinates on the grid represent blocks. each block is blockSize.
      * Therefore, we must convert our desired gridCoords, which represent the block's coordinates to
      * the drawCoords, which represents the coordinates on the screen that match the gridCoords.
+     * Additionally, we must consider the player's position.
+     *
+     * In the return equation, the playerCoords x component is subtracted.
+     * This is because the player's +x direction is to the right.
+     * This algorithm must then draw the origin further to the left so the player stays at the centre.
+     * Thus, it pushes back the blocks to the left.
+     * Also, the vertical blocks are pushed down, as the player's up is the top of the screen.
      *
      * Example:
      *  // we want to draw the point 0,0. it is located on point: 960, 540.
      *  (0,0) -> (960, 540)
      * */
     return {
-            midPoint[0] + (int)(gridCoords[0] * zoomFactor * blockSize),
-            midPoint[1] - (int)(gridCoords[1] * zoomFactor * blockSize)
+            midPoint[0] + (int)(gridCoords[0] * zoomFactor * blockSize) - (int)(playerCoords[0] * zoomFactor * blockSize),
+            midPoint[1] - (int)(gridCoords[1] * zoomFactor * blockSize) + (int)(playerCoords[1] * zoomFactor * blockSize)
     };
 }
 
@@ -47,6 +54,29 @@ std::vector<int> grid::getGridDimensions(){
             static_cast<int>(ceil(midPoint[0] / (blockSize * zoomFactor))),
             static_cast<int>(ceil(midPoint[1] / (blockSize * zoomFactor)))
     };
+}
+
+std::vector<std::vector<int>> grid::getBlocks(std::vector<int> gridDimensions) {
+    /*
+     * Generates a list of all the blocks on screen.
+     *
+     * gets the size of the grid.
+     * from there, determine all the blocks on screen with the player's coords at the centre
+     *
+     * the blocks on screen are dependant on the player's position.
+     * */
+
+    std::vector<std::vector<int>> blocks;
+
+    // adds all blocks surrounding the player
+    for (int x=-gridDimensions[0]+playerCoords[0]; x < gridDimensions[0]+playerCoords[0]; x++){
+        for (int y= -gridDimensions[1]+playerCoords[1]; y< gridDimensions[1]+playerCoords[1]; y++){
+            blocks.push_back({x,y});
+        }
+    }
+
+    return blocks;
+
 }
 
 void grid::setZoom(float delta) {
@@ -121,14 +151,15 @@ void grid::drawFPS(sf::RenderWindow *window) {
      * Then sets the text and draws it
      * */
 
-    sf::Font font;
-    font.loadFromFile("../assets/fonts/blockgame.ttf"); // TODO: error handle this
-
     sf::Text fpsText;
-    fpsText.setFont(font);
+    fpsText.setFont(FONTS["MC"]);
     fpsText.setString(std::to_string((int)FPS)); // sets the text of the string to the FPS value
     fpsText.setCharacterSize(24); // size in pixels
     fpsText.setFillColor(sf::Color::White);
 
     window->draw(fpsText);
+}
+
+void grid::showCoords(sf::RenderWindow *window) {
+    ;
 }

@@ -7,6 +7,7 @@
 #include "grid.h"
 #include "Block.h"
 #include "../utils/directory.h"
+#include "../keybinds/keybinds.h"
 using namespace std;
 
 const char name[] = "Grid_system";
@@ -21,6 +22,7 @@ int main(){
     sf::Clock clock; // the clock. basically what we can use to regulate frame rate
     //float dt; // the number of seconds since the last frame
     loadTextures();
+    loadFonts();
 
 
 
@@ -39,20 +41,30 @@ int main(){
             }
         }
 
+        // keybinds
+        key::arrowKeys();
 
         // draws the grid
-        vector<int> gridDims = grid::getGridDimensions(); // gets the dimensions of the grid
+        auto blocks = grid::getBlocks(grid::getGridDimensions()); // all blocks currently visible
 
-        for (int x=-gridDims[0]; x<=gridDims[0]; x++) // draws all points.
-            for (int y=-gridDims[1]; y<=gridDims[1]; y++){
+        for (auto i : blocks){
+            auto drawCoords =grid::convertCoords({i[0], i[1]});
 
+            Block block = Block({i[0],i[1]});
 
-                Block block = Block({x,y});
+            block.render(); // TODO: make all blocks rendered at first, but not afterward
+            Block::draw(&window, block);
 
-                block.render(); // TODO: make all blocks rendered at first, but not afterward
-                Block::draw(&window, block);
+            // TODO: put this into a method; grid::showCoords()
+            sf::Text posText;
+            posText.setFont(FONTS["MC"]);
+            posText.setString(std::to_string(i[0])+","+std::to_string(i[1]));
+            posText.setCharacterSize(16);
+            posText.setFillColor(sf::Color::White);
+            posText.setPosition(drawCoords[0], drawCoords[1]);
+            window.draw(posText);
+        }
 
-            }
 
         grid::drawMidpoint(&window);
 

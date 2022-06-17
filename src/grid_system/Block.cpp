@@ -7,22 +7,6 @@
 #include "../utils/directory.h"
 #include <string>
 
-
-
-void loadTextures(){
-
-    sf::Texture flower1;
-    flower1.loadFromFile("../assets/blocks/plains/flower2.png");
-    flower1.setSmooth(false);
-
-    sf::Texture flower2;
-    flower2.loadFromFile("../assets/blocks/plains/flower2.png");
-    flower2.setSmooth(false);
-
-    TEXTURES["flower1"] = flower1;
-    TEXTURES["flower2"] = flower2;
-}
-
 Block::Block(std::vector<int> position) {
     /*
      * Initializes the block and assigns its position.
@@ -102,7 +86,8 @@ void Block::loadTextures() {
      *  get the noise stuff working. for now it just loads flowers
      * */
 
-    this->textures.push_back(TEXTURES["flower1"]);
+    if (this->position[0] %2 ==0) this->textures.push_back(TEXTURES["flower1"]);
+    else this->textures.push_back(TEXTURES["rock"]);
     //this->textures.push_back(flower2);
 
 

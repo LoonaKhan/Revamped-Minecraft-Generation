@@ -59,7 +59,4 @@ private:
 
 };
 
-
-void loadTextures();
-
 #endif //REVAMPED_MINECRAFT_GENERATION_BLOCK_H
