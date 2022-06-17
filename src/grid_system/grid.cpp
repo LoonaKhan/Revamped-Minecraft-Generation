@@ -69,8 +69,8 @@ std::vector<std::vector<int>> grid::getBlocks(std::vector<int> gridDimensions) {
     std::vector<std::vector<int>> blocks;
 
     // adds all blocks surrounding the player
-    for (int x=-gridDimensions[0]+playerCoords[0]; x < gridDimensions[0]+playerCoords[0]; x++){
-        for (int y= -gridDimensions[1]+playerCoords[1]; y< gridDimensions[1]+playerCoords[1]; y++){
+    for (int x=-gridDimensions[0]+playerCoords[0]; x < gridDimensions[0]+playerCoords[0]+1; x++){
+        for (int y= -gridDimensions[1]+playerCoords[1]; y< gridDimensions[1]+playerCoords[1]+1; y++){
             blocks.push_back({x,y});
         }
     }
@@ -111,24 +111,16 @@ void grid::setZoom(float delta) {
 }
 
 void grid::drawMidpoint(sf::RenderWindow *window) { // draws the midpoint
-    // makes 2 rects in the centre.
-    // we make 2 for the sake of visibility
+    // draws the midpoint in the centre.
+    // Its scaled up because the og image is quite small.
 
-    // the first, larger rect
-    sf::RectangleShape mid;
-    mid.setPosition(midPoint[0], midPoint[1]);
-    mid.setOrigin(8,8);
-    mid.setFillColor(sf::Color::Black);
-    mid.setSize(sf::Vector2<float>(16,16));
-    window->draw(mid);
+    sf::Sprite cursor;
+    cursor.setPosition(midPoint[0], midPoint[1]);
+    cursor.setOrigin(7,7);
+    cursor.setScale(3,3);
+    cursor.setTexture(TEXTURES["cursor"]);
+    window->draw(cursor);
 
-    // the smaller rect
-    sf::RectangleShape mid2;
-    mid2.setPosition(midPoint[0], midPoint[1]);
-    mid2.setOrigin(4,4);
-    mid2.setFillColor(sf::Color::White);
-    mid2.setSize(sf::Vector2<float>(8,8));
-    window->draw(mid2);
 }
 
 void grid::calcFrameData(sf::Clock *clock) {

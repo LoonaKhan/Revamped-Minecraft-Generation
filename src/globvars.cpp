@@ -6,7 +6,7 @@
 
 const int screenRes[] = {1920, 1080};
 const int midPoint[] = {screenRes[0]/2, screenRes[1]/2};
-float zoomFactor = 4.0f; // min of 0.25, max of 4.0. todo: raise the minimum?
+float zoomFactor = 1.0f; // min of 0.25, max of 4.0. todo: raise the minimum?
 const int blockSize = 32; // 32 seems like a nice sweet-spot.
 const int chunkSize = 16; // subject to chage.
 const char appName[] = "Revamped Minecraft Generation";
@@ -22,6 +22,9 @@ std::unordered_map<std::string, sf::Font> FONTS;
 int playerCoords[] = {0,0};
 
 void loadTextures(){
+    // TODO
+    //  make this a forloop lol
+    //  use listDirContents() and parse the strings
 
     sf::Texture flower1;
     flower1.loadFromFile("../assets/blocks/plains/flower1.png");
@@ -63,6 +66,11 @@ void loadTextures(){
     water2.loadFromFile("../assets/blocks/water/water2.png");
     water2.setSmooth(false);
 
+    sf::Texture cursor;
+    cursor.loadFromFile("../assets/sprites/cursor.png");
+    cursor.setSmooth(false);
+
+    TEXTURES["cursor"] = cursor;
     TEXTURES["flower1"] = flower1;
     TEXTURES["flower2"] = flower2;
     TEXTURES["grass1"] = grass1;
