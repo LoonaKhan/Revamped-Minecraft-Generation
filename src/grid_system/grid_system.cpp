@@ -6,7 +6,7 @@
 #include "../globvars.h"
 #include "grid.h"
 #include "Block.h"
-#include "../utils/directory.h"
+#include "../utils/directory/directory.h"
 #include "../keybinds/keybinds.h"
 using namespace std;
 

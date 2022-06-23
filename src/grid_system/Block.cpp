@@ -4,7 +4,7 @@
 
 #include "Block.h"
 #include "grid.h"
-#include "../utils/directory.h"
+#include "../utils/directory/directory.h"
 #include <string>
 
 Block::Block(std::vector<int> position) {
