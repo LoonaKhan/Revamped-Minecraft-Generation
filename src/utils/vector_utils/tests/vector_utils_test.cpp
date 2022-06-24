@@ -2,17 +2,73 @@
 // Created by loona on 23/06/22.
 //
 
-//#include "../vector_utils.h"
-//#include "../../../grid_system/Block.h"
+#include "../vector_utils.h"
+#include "../../../grid_system/Block.h"
 #include <iostream>
-#include <vector>
+#include <string>
 
 void rightMatchTest(){
     /*
      * Tests the rightMatch.
      *
      * TODO: implement this
+     *  test cases:
+     *      no overlap          needed= {{1,2}, {0,1}} , toDraw={{0,2}, {0,0}}
+     *      overlap             needed= {{1,2}, {0,1}} , toDraw={{1,2}, {0,0}}
+     *      complete overlap    needed= {{1,2}, {0,0}} , toDraw={{1,2}, {0,0}}
+     *      different size***
+     *          if that element is not defined, skip.
+     *          or use what we did before. bad chunks list and remove them.
+     *              slower but simple
+     *      combinations of the above with diff sizes
      * */
+
+    std::vector<Block> blocksToDraw = {Block({1,2}), Block({0,0})};
+    std::vector<std::vector<int>> needed = {{1,2}, {0,1}};
+
+    blocksToDraw = vtr::rightMatch(blocksToDraw, needed);
+
+    for (auto block : blocksToDraw)
+        std::cout << "x: " << block.position[0] << " y: " << block.position[1] << std::endl;
+
+}
+
+void vectorContainsVectorTest(){
+    /*
+     * Test cases:
+     *  1 vector: {1,2} , {{1,2}}
+     *  multiple vectors: {1,2} , {{1,1}, {0,0}}
+     *  no matching vectors: {1,2} , {{0,0}, {1,1}}
+     * */
+    std::vector<int> vector1 = {1,2};
+    std::vector<std::vector<int>> vector2 = {
+            {1,1},
+            {1},
+            {0,0}
+    };
+    std::string msg = "false";
+
+    if (vtr::vectorContainsVector(vector2, vector1))
+        msg = "true ";
+
+    std::cout << msg << std::endl;
+}
+
+void blockListContainsVectorTest(){
+    /*
+     * Test cases:
+     *  1 block: needed= {1,2} , toDraw= {{1,2}}
+     *  multiple blocks: needed= {1,2} , toDraw= {{1,2},{2,3}}
+     *  no matching blocks: needed= {1,2} , toDraw= {{1,0},{2,3}}
+     * */
+    std::vector<Block> blockList = {Block({1,0}), Block({2,3})};
+    std::vector<int> vec = {1,2};
+    std::string msg = "false";
+
+    if (vtr::blockListContainsVector(blockList, vec))
+        msg = "true";
+
+    std::cout << msg << std::endl;
 }
 
 void diffSizedVectors(){
@@ -45,4 +101,8 @@ void arrIndexes(){
 int main(){
     //diffSizedVectors();
     //arrIndexes();
+    rightMatchTest();
+
+    //vectorContainsVectorTest();
+    //blockListContainsVectorTest();
 }
