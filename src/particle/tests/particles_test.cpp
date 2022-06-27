@@ -40,8 +40,8 @@ void drawTest(){
                                           {2,150,240},
                                           5,
                                           {2, 4},
-                                          {2,-0.25},
-                                          0.08));
+                                          {0,-0.25},
+                                          -0.08));
 
         for (int i=0; i<particles.size(); i++) {
             ptc::Particle::draw(&window, particles[i]);
@@ -56,6 +56,8 @@ void drawTest(){
         grid::calcFrameData(&clock);
         grid::drawFPS(&window);
         window.setFramerateLimit(FPSLimit);
+
+        // also show how many particles are on screen?
 
         window.display();
         window.clear();

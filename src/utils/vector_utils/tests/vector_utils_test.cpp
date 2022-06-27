@@ -16,15 +16,12 @@ void rightMatchTest(){
      *      no overlap          needed= {{1,2}, {0,1}} , toDraw={{0,2}, {0,0}}
      *      overlap             needed= {{1,2}, {0,1}} , toDraw={{1,2}, {0,0}}
      *      complete overlap    needed= {{1,2}, {0,0}} , toDraw={{1,2}, {0,0}}
-     *      different size***
-     *          if that element is not defined, skip.
-     *          or use what we did before. bad chunks list and remove them.
-     *              slower but simple
-     *      combinations of the above with diff sizes
+     *      different size
+     *      combinations with diff sizes
      * */
 
-    std::vector<Block> blocksToDraw = {Block({1,2}), Block({0,0})};
-    std::vector<std::vector<int>> needed = {{1,2}, {0,1}};
+    std::vector<Block> blocksToDraw = {Block({1,2}), Block({0,1})};
+    std::vector<std::vector<int>> needed = {{1,3}, {0,0}, {1,1}};
 
     blocksToDraw = vtr::rightMatch(blocksToDraw, needed);
 
@@ -40,11 +37,11 @@ void vectorContainsVectorTest(){
      *  multiple vectors: {1,2} , {{1,1}, {0,0}}
      *  no matching vectors: {1,2} , {{0,0}, {1,1}}
      * */
-    std::vector<int> vector1 = {1,2};
+    std::vector<int> vector1 = {1,2, 3};
     std::vector<std::vector<int>> vector2 = {
             {1,1},
             {1},
-            {0,0}
+            {1,2}
     };
     std::string msg = "false";
 
@@ -61,8 +58,8 @@ void blockListContainsVectorTest(){
      *  multiple blocks: needed= {1,2} , toDraw= {{1,2},{2,3}}
      *  no matching blocks: needed= {1,2} , toDraw= {{1,0},{2,3}}
      * */
-    std::vector<Block> blockList = {Block({1,0}), Block({2,3})};
-    std::vector<int> vec = {1,2};
+    std::vector<Block> blockList = {Block({1,2}), Block({2,3})};
+    std::vector<int> vec = {1,2, 3};
     std::string msg = "false";
 
     if (vtr::blockListContainsVector(blockList, vec))
